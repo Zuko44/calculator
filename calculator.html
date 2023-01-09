@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head>
+<style>
+#wrapper{
+width: 300px;
+height: 400px;
+border: 1px solid black;
+}
+#input{
+position: relative;
+left: 10px;
+top: 10px;
+width: 277px;
+height: 25px;
+}
+.buttons{
+width: 50px;
+height: 50px;
+margin: 0px 0px 10px 17px;
+}
+</style>
+</head>
+<body>
+<p id = "copy"></p>
+<div id = "wrapper">
+<input id = "input" type = "text">
+<br><br><br>
+<button id = "one" class = "buttons numbers">1</button>
+<button id = "two" class = "buttons numbers">2</button>
+<button id = "three" class = "buttons numbers">3</button>
+<button id = "four" class = "buttons numbers">4</button>
+<button id = "five" class = "buttons numbers">5</button>
+<button id = "six" class = "buttons numbers">6</button>
+<button id = "seven" class = "buttons numbers">7</button>
+<button id = "eight" class = "buttons numbers">8</button>
+<button id = "comma" class = "buttons">.</button>
+<button id = "nine" class = "buttons numbers">9</button>
+<button id = "zero" class = "buttons numbers">0</button>
+<button id = "equally" class = "buttons">=</button>
+<button id = "plus" class = "buttons">+</button>
+<button id = "minus" class = "buttons">-</button>
+<button id = "star" class = "buttons">*</button>
+<button id = "slash" class = "buttons">/</button>
+<button id = "del" class = "buttons">del</button>
+<button id = "clear" class = "buttons">clear</button>
+<button id = "save" class = "buttons">save</button>
+<button id = "look" class = "buttons">look</button>
+</div>
+<script>
+let Buttons = document.querySelectorAll('.buttons.numbers');
+let result = [ ];
+for (let button of Buttons){
+button.addEventListener('click', function(){
+input.value += (Number(button.innerHTML));
+copy.innerHTML += button.innerHTML;
+});
+}
+
+plus.addEventListener('click', function(){
+input.value += '+';
+copy.innerHTML += '+'});
+
+minus.addEventListener('click', function(){
+input.value += '-';
+copy.innerHTML += '-'});
+
+star.addEventListener('click', function(){
+input.value += '*';
+copy.innerHTML += '*'});
+
+slash.addEventListener('click', function(){
+input.value += '/';
+copy.innerHTML += '/'});
+
+equally.addEventListener('click', function(){
+let value = eval(input.value);
+input.value = value;
+copy.innerHTML += '=' + value});
+
+clear.addEventListener('click', function(){
+input.value = null;
+copy.innerHTML = null});
+
+del.addEventListener('click', function(){
+let a = input.value.split('');
+a.pop();
+
+input.value = a.join('');
+copy.innerHTML = input.value;
+});
+
+comma.addEventListener('click', function(){
+input.value += comma.innerHTML;
+copy.innerHTML +=comma.innerHTML;
+})
+
+save.addEventListener('click', function(){
+result.push(input.value)});
+
+look.addEventListener('click', function(){
+input.value = result});
+</script>
+</body>
